@@ -79,7 +79,7 @@ domicilioCheckbox.addEventListener('change', calcularTotal);
 
 // Calcular inicialmente
 document.addEventListener('DOMContentLoaded', () => {
-    // Asegurarse de que al menos un radio esté seleccionado (por defecto el clásico)
+    
     if (!document.querySelector('input[name="pan"]:checked')) {
         const primerPan = document.querySelector('input[name="pan"]');
         if (primerPan) primerPan.checked = true;
