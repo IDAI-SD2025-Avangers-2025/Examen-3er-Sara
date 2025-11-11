@@ -67,7 +67,7 @@ function calcularTotal() {
     };
 }
 
-// Listeners
+
 btnCalcular.addEventListener('click', calcularTotal);
 
 // Recalcular automáticamente al cambiar cualquier entrada relevante
