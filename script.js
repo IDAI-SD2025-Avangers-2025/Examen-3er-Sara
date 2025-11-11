@@ -56,7 +56,7 @@ function calcularTotal() {
     // Actualizar DOM
     totalDiv.textContent = 'Total: ' + formatearMXN(total);
 
-    return {
+    return{ 
         precioBase,
         extraPan,
         ingredientesCount,
@@ -65,6 +65,7 @@ function calcularTotal() {
         domicilio: domicilioCheckbox.checked,
         total,
     };
+       
 }
 
 
