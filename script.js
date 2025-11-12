@@ -9,6 +9,7 @@ const preciosEspecialidad = {
     hawaiana: 180,
 };
 
+//Costos Adicionales
 const precioIngrediente = 5; // por ingrediente adicional
 const envioDomicilio = 30; // costo fijo por domicilio
 
@@ -21,22 +22,26 @@ const domicilioCheckbox = document.getElementById('domicilio');
 const totalDiv = document.getElementById('total');
 const btnCalcular = document.getElementById('calcularBtn');
 
+//Obtener los precio Especialidad Devuelve el precio base sugún la especilidad que se elija en <select>
 function obtenerPrecioEspecialidad() {
     const key = selectEspecialidad.value;
     return preciosEspecialidad[key] || 0;
 }
 
+//Busca que tipo de pan se selecciona en en (radio button)
 function obtenerPrecioPan() {
     const seleccionado = document.querySelector('input[name="pan"]:checked');
     return seleccionado ? Number(seleccionado.value) : 0;
 }
 
+//Cuenta cuantos Checkboxes de ingredientes están activados
 function contarIngredientesSeleccionados() {
     let count = 0;
     ingredientesCheckboxes.forEach(cb => { if (cb.checked) count++; });
     return count;
 }
 
+//Formatea el número al estilo moneda mexicana
 function formatearMXN(valor) {
     return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(valor);
 }
@@ -53,7 +58,7 @@ function calcularTotal() {
 
     if (domicilioCheckbox.checked) total += envioDomicilio;
 
-    // Actualizar DOM
+    //Formatear MXN (valor)
     totalDiv.textContent = 'Total: ' + formatearMXN(total);
 
     return{ 
